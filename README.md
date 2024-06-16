@@ -20,3 +20,4 @@ if case let .blogging(topic) = currentActivity {
    print("Not blogging")
 }
 ```
+Using if case let is particularly beneficial when we are only interested in one case and want to avoid the verbosity of a switch statement. It makes the intention of our code clearer when dealing with a single case.
