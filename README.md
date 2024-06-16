@@ -48,3 +48,18 @@ default:
 ```
 
 We’ll define a simple Circle struct and overload the ~= operator to match a Circle with a specific radius. This overload will allow us to use a Double in a switch statement case to match against a Circle.
+
+```swift
+func ~= (pattern: ClosedRange<Double>, value: Circle) -> Bool {
+    return pattern.contains(value.radius)
+}
+
+switch myCircle {
+case 0:
+    print("Radius is 0, it's a point!")
+case 1...10:
+    print("Small circle with a radius between 1 and 10")
+default:
+    print("Circle with a different radius")
+}
+```
