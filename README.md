@@ -108,14 +108,13 @@ case (nil, nil):
 Swift 5.7 introduced a shorthand syntax for optional unwrapping that eliminates this redundancy.
 
 ```swift
+var bookTitle: String?
 // Good
 if let bookTitle = bookTitle {
     print("The title of the book is \(bookTitle)")
 }
 
 // Better
-var bookTitle: String?
-
 if let bookTitle {
     print("The title of the book is \(bookTitle)")
 }
