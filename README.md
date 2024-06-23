@@ -63,3 +63,24 @@ default:
     print("Circle with a different radius")
 }
 ```
+
+## Combine switch statements with tuples for complex conditions
+let energy = 80
+let timeOfDay = "evening"
+
+switch (energy, timeOfDay) {
+case (80...100, "morning"):
+    print("You're full of energy! Great time for a workout.")
+case (50...79, "morning"):
+    print("You're doing okay. Maybe a light jog?")
+case (0...49, "morning"):
+    print("Take it easy, maybe stretch a little.")
+case (80...100, "evening"):
+    print("You're full of energy! Perfect for some evening training.")
+case (50...79, "evening"):
+    print("You have some energy left. How about some yoga?")
+case (0...49, "evening"):
+    print("Not much energy left. Time to rest.")
+default:
+    print("Check your energy level and time of day, something's off.")
+}
