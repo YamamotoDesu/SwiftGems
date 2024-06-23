@@ -87,7 +87,7 @@ default:
 }
 ```
 
-Switch on multiple optional values
+## Switch on multiple optional values
 ```swift
 var optionalInt1: Int? = 1
 var optionalInt2: Int? = nil
@@ -101,5 +101,22 @@ case let (nil, value2?):
     print("First is nil, second has a value: \(value2)")
 case (nil, nil):
     print("Both are nil")
+}
+```
+
+## Simplify optional unwrapping with the new shorthand syntax
+Swift 5.7 introduced a shorthand syntax for optional unwrapping that eliminates this redundancy.
+
+```swift
+// Good
+if let bookTitle = bookTitle {
+    print("The title of the book is \(bookTitle)")
+}
+
+// Better
+var bookTitle: String?
+
+if let bookTitle {
+    print("The title of the book is \(bookTitle)")
 }
 ```
