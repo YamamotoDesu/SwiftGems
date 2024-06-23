@@ -65,6 +65,7 @@ default:
 ```
 
 ## Combine switch statements with tuples for complex conditions
+```swift
 let energy = 80
 let timeOfDay = "evening"
 
@@ -84,3 +85,4 @@ case (0...49, "evening"):
 default:
     print("Check your energy level and time of day, something's off.")
 }
+```
