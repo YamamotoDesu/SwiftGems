@@ -133,3 +133,15 @@ if var number = Int(numberString) {
 }
 // Here, 'number' is not accessible outside the 'if' block
 ```
+
+## Execute loop operations on non-nil elements
+```swift
+let optionalNames: [String?] = [
+    "Alice", nil, "Bob", "Charlie", nil, "Diana"
+]
+
+for case let name? in optionalNames {
+    // This code will only execute for non-nil elements
+    print(name)
+}
+```
