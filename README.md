@@ -131,4 +131,5 @@ if var number = Int(numberString) {
     // Prints `Squared value: 4`
     print("Squared value: \(number)")
 }
+// Here, 'number' is not accessible outside the 'if' block
 ```
