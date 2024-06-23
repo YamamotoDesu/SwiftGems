@@ -86,3 +86,20 @@ default:
     print("Check your energy level and time of day, something's off.")
 }
 ```
+
+Switch on multiple optional values
+```swift
+var optionalInt1: Int? = 1
+var optionalInt2: Int? = nil
+
+switch (optionalInt1, optionalInt2) {
+case let (value1?, value2?):
+    print("Both have values: \(value1) and \(value2)")
+case let (value1?, nil):
+    print("First has a value: \(value1), second is nil")
+case let (nil, value2?):
+    print("First is nil, second has a value: \(value2)")
+case (nil, nil):
+    print("Both are nil")
+}
+```
