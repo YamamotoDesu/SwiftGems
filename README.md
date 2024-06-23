@@ -119,3 +119,16 @@ if let bookTitle {
     print("The title of the book is \(bookTitle)")
 }
 ```
+
+## Modify unwrapped optionals directly within the if statement block
+This approach can be particularly useful when we need to perform temporary, isolated modifications to a value coming from an optional, without affecting the original state of our data structures.
+```swift
+var numberString: String = "2"
+
+if var number = Int(numberString) {
+    number *= number
+    
+    // Prints `Squared value: 4`
+    print("Squared value: \(number)")
+}
+```
