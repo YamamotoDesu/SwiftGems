@@ -145,3 +145,22 @@ for case let name? in optionalNames {
     print(name)
 }
 ```
+
+## Set a constant based on conditions
+```swift
+func weatherNotification(for temperature: Int) -> String {
+    let message: String
+
+    if temperature > 30 {
+        message = "It's hot outside."
+    } else if temperature < 0 {
+        message = "Freezing temperatures!"
+    } else {
+        message = "Mild weather."
+    }
+
+    let detailedMessage = message + " Take necessary precautions."
+    return detailedMessage
+}
+```
+In this example, message is a constant whose value depends on the temperature. Notice how message is set in every branch of the if-else statement. This satisfies the compiler’s requirement that message must have a value no matter what the outcome of the temperature check is.
