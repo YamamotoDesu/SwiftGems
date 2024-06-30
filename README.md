@@ -164,3 +164,34 @@ func weatherNotification(for temperature: Int) -> String {
 }
 ```
 In this example, message is a constant whose value depends on the temperature. Notice how message is set in every branch of the if-else statement. This satisfies the compiler’s requirement that message must have a value no matter what the outcome of the temperature check is.
+
+## Iterate over items and indices in collections
+
+Here’s a typical example using enumerated().
+
+```swift
+var ingredients = ["potatoes", "cheese", "cream"]
+
+for (i, ingredient) in ingredients.enumerated() {
+    // The counter helps us display the sequence number, not the index
+    print("ingredient number \(i + 1) is \(ingredient)")
+}
+```
+
+For a more accurate way to handle indices, especially when working with collections that might be subsets or have non-standard indexing, we can use the zip() function.
+
+```swift
+// Array<String>
+var ingredients = ["potatoes", "cheese", "cream"]
+
+// Array<String>.SubSequence
+var doubleIngredients = ingredients.dropFirst()
+
+for (i, ingredient) in zip(
+    doubleIngredients.indices, doubleIngredients
+) {
+    // Correctly use the actual indices of the subsequence
+    doubleIngredients[i] = "\(ingredient) x 2"
+}
+
+```
