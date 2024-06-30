@@ -212,3 +212,33 @@ for (i, ingredient) in doubleIngredients.indexed() {
     doubleIngredients[i] = "\(ingredient) x 2"
 }
 ```
+
+## Filter elements within the loop structure using where clause
+
+```swift
+enum TransportationEvent {
+    case busArrival(
+        busNumber: Int,
+        passengers: Int
+    )
+    case trainArrival(
+        trainNumber: Int,
+        passengers: Int,
+        cargoLoad: Int
+    )
+    case bicycleArrival
+}
+
+let transportationEvents: [TransportationEvent] = [
+    .busArrival(busNumber: 1, passengers: 5),
+    .busArrival(busNumber: 2, passengers: 15),
+    .trainArrival(trainNumber: 10, passengers: 50, cargoLoad: 100),
+    .busArrival(busNumber: 3, passengers: 20),
+    .bicycleArrival
+]
+
+for case let .busArrival(busNumber, passengers)
+        in transportationEvents where passengers > 10 {
+    print("Bus \(busNumber) arrived with \(passengers) passengers.")
+}
+```
