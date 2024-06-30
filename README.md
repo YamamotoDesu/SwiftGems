@@ -195,3 +195,20 @@ for (i, ingredient) in zip(
 }
 
 ```
+
+For a better interface over zip(), we can also use the indexed() method from Swift Algorithms. It’s equivalent to zip(doubleIngredients.indices, doubleIngredients) but might be more clear.
+
+```swift
+import Algorithms
+
+// Array<String>
+var ingredients = ["potatoes", "cheese", "cream"]
+
+// Array<String>.SubSequence
+var doubleIngredients = ingredients.dropFirst()
+
+for (i, ingredient) in doubleIngredients.indexed() {
+    // Do something with the index
+    doubleIngredients[i] = "\(ingredient) x 2"
+}
+```
