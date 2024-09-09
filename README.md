@@ -242,3 +242,17 @@ for case let .busArrival(busNumber, passengers)
     print("Bus \(busNumber) arrived with \(passengers) passengers.")
 }
 ```
+
+## Label loop statements to control execution of nested loops
+
+```swift
+let valueToFind = 5
+searchValue: for row in matrix {
+    for num in row {
+        if num == valueToFind {
+            print("Value \(valueToFind) found!")
+            break searchValue
+        }
+    }
+}
+```
