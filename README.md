@@ -256,3 +256,16 @@ searchValue: for row in matrix {
     }
 }
 ```
+
+# Functions, methods, and closures
+## Pass a varying number of input values to a function
+
+```swift
+func printNumbers(numbers: Int...) {
+    for number in numbers {
+        print(number)
+    }
+}
+
+printNumbers(numbers: 1, 2, 3)
+```
