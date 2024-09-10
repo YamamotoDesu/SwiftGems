@@ -301,6 +301,8 @@ fetchData(options: [.useCache, .retryOnFailure])
 We can easily combine different options without cluttering our method signatures with multiple Boolean parameters.
 
 ## Enable direct modification of function arguments
+
+```swift
 struct User {
     var name: String
     var age: Int
