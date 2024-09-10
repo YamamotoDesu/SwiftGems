@@ -326,3 +326,35 @@ print(currentUser)
 ```
 
 By avoiding unnecessary copying of data, inout parameters can improve performance and memory usage, particularly when dealing with large data structures.
+
+## Optimize function arguments with autoclosures
+
+```swift
+enum LogLevel: Comparable {
+    case debug, info, warning, error
+}
+
+var currentLogLevel: LogLevel = .info
+
+func logMessage(
+    level: LogLevel,
+    message: @autoclosure () -> String
+) {
+    if level >= currentLogLevel {
+        print(message())
+    }
+}
+
+func expensiveStringComputation() -> String {
+    // Simulate an expensive operation
+    return "Expensive Computed String"
+}
+
+currentLogLevel = .debug
+logMessage(
+    level: .debug,
+    message: "Debug: \(expensiveStringComputation())"
+)
+```
+
+In this example, the logMessage() function takes a message parameter marked with @autoclosure. This means the expensiveStringComputation() is not executed when the logMessage() function is called. Instead, it’s wrapped in a closure and only executed when the if condition evaluates to true. This approach avoids unnecessary computation when the log level is lower than debug.
