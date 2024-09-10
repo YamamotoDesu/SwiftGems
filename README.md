@@ -299,3 +299,28 @@ fetchData(options: [.useCache, .retryOnFailure])
 ```
 
 We can easily combine different options without cluttering our method signatures with multiple Boolean parameters.
+
+## Enable direct modification of function arguments
+struct User {
+    var name: String
+    var age: Int
+}
+
+func updateUserDetails(
+    user: inout User, newName: String, newAge: Int
+) {
+    user.name = newName
+    user.age = newAge
+}
+
+var currentUser = User(name: "Alice", age: 30)
+
+updateUserDetails(
+    user: &currentUser, newName: "Bob", newAge: 25
+)
+
+// Prints `User(name: "Bob", age: 25)`
+print(currentUser)
+```
+
+By avoiding unnecessary copying of data, inout parameters can improve performance and memory usage, particularly when dealing with large data structures.
