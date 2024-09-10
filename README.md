@@ -269,3 +269,33 @@ func printNumbers(numbers: Int...) {
 
 printNumbers(numbers: 1, 2, 3)
 ```
+
+## Define a set of configurations with OptionSet
+
+```swift
+struct FetchOptions: OptionSet {
+    let rawValue: Int
+
+    static let useCache = FetchOptions(rawValue: 1 << 0)
+    static let retryOnFailure = FetchOptions(rawValue: 1 << 1)
+    static let background = FetchOptions(rawValue: 1 << 2)
+}
+
+func fetchData(options: FetchOptions) {
+    if options.contains(.useCache) {
+        // Implement cache logic
+    }
+    if options.contains(.retryOnFailure) {
+        // Implement retry logic
+    }
+    if options.contains(.background) {
+        // Implement background execution logic
+    }
+
+    // Rest of the fetch operation
+}
+
+fetchData(options: [.useCache, .retryOnFailure])
+```
+
+We can easily combine different options without cluttering our method signatures with multiple Boolean parameters.
